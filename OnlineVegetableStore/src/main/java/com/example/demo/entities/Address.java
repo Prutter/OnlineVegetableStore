@@ -1,17 +1,11 @@
 package com.example.demo.entities;
 
 import jakarta.persistence.Column;
-//import jakarta.persistence.GeneratedValue;
-//import jakarta.persistence.GenerationType;
-//import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.Entity;
-=======
 import jakarta.persistence.Embeddable;
 
 
-@Entity
-=======
+
 @Embeddable
 @Table(name = "address")
 public class Address {
