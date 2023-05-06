@@ -28,7 +28,7 @@ public class CustomerServiceImpl implements CustomerService {
 	 */
 	@Override
 	public Customer addCustomer(Customer customer) {
-		Customer obCustomer= customerDao.findByEmailId(customer.getEmailId()).orElseThrow(()->new CustomerException("Provided email id  is already exist so Please try with another email id"));
+		Customer obCustomer= customerDao.findByEmailId(customer.getEmail()).orElseThrow(()->new CustomerException("Provided email id  is already exist so Please try with another email id"));
 		   
 		 obCustomer= customerDao.save(customer);
 		return obCustomer;
@@ -37,12 +37,12 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public Customer updateCustomer(Customer customer) {
 		
-		Customer res= customerDao.findByEmailId(customer.getEmailId()).orElseThrow(()->new CustomerException("Customer details Not found"));
+		Customer res= customerDao.findByEmailId(customer.getEmail()).orElseThrow(()->new CustomerException("Customer details Not found"));
 	   
 	    
-	    if(!customer.getEmailId().equals(""))
+	    if(!customer.getEmail().equals(""))
 		{
-			res.setEmailId(customer.getEmailId());
+			res.setEmail(customer.getEmail());
 			
 		}
 	   
@@ -63,7 +63,7 @@ public class CustomerServiceImpl implements CustomerService {
 	 */
 	@Override
 	public Customer removeCustomer(Customer customer) {
-		Customer res= customerDao.findByEmailId(customer.getEmailId()).orElseThrow(()->new CustomerNotFoundException("Provided  customer details are invalid ,Please try again with correct details"));
+		Customer res= customerDao.findByEmailId(customer.getEmail()).orElseThrow(()->new CustomerNotFoundException("Provided  customer details are invalid ,Please try again with correct details"));
 		
 		
 		 customerDao.delete(res);
@@ -75,15 +75,15 @@ public class CustomerServiceImpl implements CustomerService {
 	public Customer viewCustomer(Customer customer) {
 		
 		
-		if(!customer.getEmailId().equals(""))
+		if(!customer.getEmail().equals(""))
 		{
-			Customer ans = customerDao.findByEmailId(customer.getEmailId()).orElseThrow(()->new CustomerException("Invalid details"));
+			Customer ans = customerDao.findByEmailId(customer.getEmail()).orElseThrow(()->new CustomerException("Invalid details"));
 			return ans;
 		}
 		
-		if(!customer.getMobileNumber().equals(""))
+		if(!customer.getPhone().equals(""))
 		{
-			Customer ans = customerDao.findByMobileNumber(customer.getMobileNumber()).orElseThrow(()-> new CustomerException("Invalid details"));
+			Customer ans = customerDao.findByMobileNumber(customer.getPhone()).orElseThrow(()-> new CustomerException("Invalid details"));
 			return ans;
 		}
 		else {
