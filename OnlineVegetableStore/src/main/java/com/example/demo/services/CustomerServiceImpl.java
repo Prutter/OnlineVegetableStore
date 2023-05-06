@@ -12,6 +12,8 @@ import com.example.demo.exceptions.AdminException;
 import com.example.demo.exceptions.CustomerException;
 import com.example.demo.exceptions.CustomerNotFoundException;
 import com.example.demo.repositories.CustomerDao;
+
+import ch.qos.logback.core.joran.conditional.IfAction;
 @Service
 public class CustomerServiceImpl implements CustomerService {
 	
@@ -28,9 +30,18 @@ public class CustomerServiceImpl implements CustomerService {
 	 */
 	@Override
 	public Customer addCustomer(Customer customer) {
-		Customer obCustomer= customerDao.findByEmailId(customer.getEmail()).orElseThrow(()->new CustomerException("Provided email id  is already exist so Please try with another email id"));
-		   
-		 obCustomer= customerDao.save(customer);
+		Optional<Customer>  res= customerDao.findByEmailId(customer.getEmail());
+		Customer obCustomer=null;
+		if(res.isPresent())
+			   throw new CustomerException("User already exits");
+		else if(customer==null)
+			  throw new CustomerException("provided detalis are empty");
+		else {
+			   
+			 obCustomer = customerDao.save(customer);
+		}
+			
+		
 		return obCustomer;
 	}
 
@@ -70,24 +81,32 @@ public class CustomerServiceImpl implements CustomerService {
 		 return res;
 		
 	}
-
+	
+	
+    /**
+     * This method is used to get Customer details either by Email or Phone number
+     * @paramCustomer
+     * @exception CustomerException
+     * @return Customer
+     * @author Ankit Choubey 
+     */
 	@Override
 	public Customer viewCustomer(Customer customer) {
 		
 		
 		if(!customer.getEmail().equals(""))
 		{
-			Customer ans = customerDao.findByEmailId(customer.getEmail()).orElseThrow(()->new CustomerException("Invalid details"));
+			Customer ans = customerDao.findByEmailId(customer.getEmail()).orElseThrow(()->new CustomerException("Invalid credential"));
 			return ans;
 		}
 		
 		if(!customer.getPhone().equals(""))
 		{
-			Customer ans = customerDao.findByMobileNumber(customer.getPhone()).orElseThrow(()-> new CustomerException("Invalid details"));
+			Customer ans = customerDao.findByMobileNumber(customer.getPhone()).orElseThrow(()-> new CustomerException("Invalid Credential"));
 			return ans;
 		}
 		else {
-			 throw new AdminException("Details are empty so Admin details cannot be found");
+			 throw new CustomerNotFoundException("Details are invalid ,User not found");
 		}
 		
 		

@@ -13,4 +13,5 @@ public Optional<Customer> findByEmailId(String emailId);
 
 public List<Customer> findByName(String name);
 public Optional<Customer> findByMobileNumber(String mobileNumber);
+public Optional<Customer> findByUserNameAndpassword(String username,String password);
 }

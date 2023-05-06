@@ -15,12 +15,15 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import java.util.List;
 
 @Entity
 @Table(name = "ADMIN")
 @Data
-public class Admin {
+@EqualsAndHashCode(callSuper = false)
+public class Admin extends User {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Integer adminId;
