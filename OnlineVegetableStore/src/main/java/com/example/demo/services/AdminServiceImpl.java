@@ -3,20 +3,40 @@ package com.example.demo.services;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.entities.Admin;
 import com.example.demo.exceptions.AdminException;
 import com.example.demo.repositories.AdminDao;
 
+@Service
 public class AdminServiceImpl implements AdminService {
     
 	@Autowired
 	private AdminDao adminDao;
 	
+	
+	/**
+	 * This method is used to add the details of Admin into the database
+	 * @paramAdmin
+	 * @exception AdminException: If details are already exits || If provided details are empty
+	 * @return Admin
+	 * @author Ankit Choubey
+	 */
 	@Override
 	public Admin addAdmin(Admin admin) {
-		Admin response=   adminDao.save(admin);    
-		return response;
+		Optional<Admin>  res= adminDao.findByEmailId(admin.getEmail());
+		if(res.isPresent())
+			  throw new AdminException("Details are already exits ,Please try login ");
+		else if(admin==null)
+		{ 
+			 throw new AdminException("Details are empty so please try again with correct details");
+		}
+		else {
+			Admin response=   adminDao.save(admin);    
+			return response;
+		}
+	
 	}
 
 	@Override
@@ -24,14 +44,14 @@ public class AdminServiceImpl implements AdminService {
 		Optional<Admin> res= adminDao.findByName(admin.getName());
     Admin  adm	=res.orElseThrow(()-> new AdminException("Details are invalid so admin cannot be update "));
     
-    if(!admin.getEmailId().equals(""))
+    if(!admin.getEmail().equals(""))
 	{
-		adm.setEmailId(admin.getEmailId());
+		adm.setEmail(admin.getEmail());
 		
 	}
-    if(!admin.getContactNumber().equals(""))
+    if(!admin.getPhone().equals(""))
 	{
-	    adm.setContactNumber(admin.getContactNumber());
+	    adm.setPhone(admin.getPhone());
 	   
 	}
    
@@ -47,25 +67,31 @@ public class AdminServiceImpl implements AdminService {
 		return res;
 	}
 
+	
+	/**
+	 * This method is used to get Admin details using either email or number or Name 
+	 * @paramAdmin
+	 * @exception AdminException : If provided Creadential are invalid || Details are empty
+	 * @returnAdmin
+	 * @author Ankit Choubey
+	 */
 	@Override
 	public Admin viewAdmin(Admin admin) {
 		
-		if(!admin.getName().equals(""))
+		if(!admin.getEmail().equals(""))
 		{
-		 Admin ans =adminDao.findByName(admin.getName()).orElseThrow(()->new AdminException("Invalid details"));
+			Admin ans = adminDao.findByEmailId(admin.getEmail()).orElseThrow(()->new AdminException("Invalid Credential"));
+			return ans;
+		}
+		else if(!admin.getPhone().equals(""))
+		{
+			Admin ans = adminDao.findByContactNumber(admin.getPhone()).orElseThrow(()->new AdminException("Invalid Credential"));
+			return ans;
+		}
+		else if(!admin.getName().equals(""))
+		{
+		 Admin ans =adminDao.findByName(admin.getName()).orElseThrow(()->new AdminException("Invalid Credential"));
 		return ans;
-		}
-		
-		if(!admin.getEmailId().equals(""))
-		{
-			Admin ans = adminDao.findByEmailId(admin.getEmailId()).orElseThrow(()->new AdminException("Invalid details"));
-			return ans;
-		}
-		
-		if(!admin.getContactNumber().equals(""))
-		{
-			Admin ans = adminDao.findByContactNumber(admin.getContactNumber()).orElseThrow(()->new AdminException("Invalid details"));
-			return ans;
 		}
 		else {
 			 throw new AdminException("Details are empty so Admin details cannot be found");

@@ -12,16 +12,24 @@
 
     <nav>
         <div class="logo">
-            <img src="logo.png" alt="Online Vegetable Store">
-        </div>
-        <div class="menu-toggle">
-            <i class="fas fa-bars"></i>
+            <img src="logo.png" alt="organic Oasis">
         </div>
         <ul class="navigation">
-            <li><a href="index.html">Home</a></li>
-            <!-- <li><a href="login.html">Admin Login</a></li> -->
-            <li><a href="Userlogin.html">User Login</a></li>
-            <li><a href="Usersignup.html">User Signup</a></li>
+            <li><a href="Adminlogin.html">Login</a></li>
+            <li><a href="signup.html">Signup</a></li>
+            <!-- <li><a href="cart.html">Cart</a></li> -->
+            <button id="cart-btn">View Cart</button>
+
+            <div id="cart-popup" class="cart-popup">
+                <div class="cart-popup-content">
+                    <span class="close">&times;</span>
+                    <h3>Shopping Cart</h3>
+                    <ul id="cart-items">
+                        <!-- Items will be dynamically added here -->
+                    </ul>
+                    <button id="checkout-btn">Checkout</button>
+                </div>
+            </div>
         </ul>
     </nav>
 
@@ -32,6 +40,11 @@
             <input type="text" id="username" name="username" required>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
+            <label for="category">Category:</label>
+      <select id="category" name="category">
+        <option value="admin">Admin</option>
+        <option value="customer">Customer</option>
+      </select><br>
             <label for="login"></label>
             <input type="submit" value="Login">
         </form>
