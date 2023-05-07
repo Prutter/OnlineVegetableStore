@@ -14,7 +14,7 @@ public class CardWallet {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer cardWalletId;
-	private Integer customerId;
+	private Integer userId;
 	private String cardNo;
 	private Integer cvv;
 	private Integer cardAmount;

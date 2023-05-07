@@ -30,7 +30,7 @@ public class CustomerServiceImpl implements CustomerService {
 	 */
 	@Override
 	public Customer addCustomer(Customer customer) {
-		Optional<Customer>  res= customerDao.findByEmailId(customer.getEmail());
+		Optional<Customer>  res= customerDao.findByEmail(customer.getEmail());
 		Customer obCustomer=null;
 		if(res.isPresent())
 			   throw new CustomerException("User already exits");
@@ -48,7 +48,7 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public Customer updateCustomer(Customer customer) {
 		
-		Customer res= customerDao.findByEmailId(customer.getEmail()).orElseThrow(()->new CustomerException("Customer details Not found"));
+		Customer res= customerDao.findByEmail(customer.getEmail()).orElseThrow(()->new CustomerException("Customer details Not found"));
 	   
 	    
 	    if(!customer.getEmail().equals(""))
@@ -74,7 +74,7 @@ public class CustomerServiceImpl implements CustomerService {
 	 */
 	@Override
 	public Customer removeCustomer(Customer customer) {
-		Customer res= customerDao.findByEmailId(customer.getEmail()).orElseThrow(()->new CustomerNotFoundException("Provided  customer details are invalid ,Please try again with correct details"));
+		Customer res= customerDao.findByEmail(customer.getEmail()).orElseThrow(()->new CustomerNotFoundException("Provided  customer details are invalid ,Please try again with correct details"));
 		
 		
 		 customerDao.delete(res);
@@ -96,13 +96,13 @@ public class CustomerServiceImpl implements CustomerService {
 		
 		if(!customer.getEmail().equals(""))
 		{
-			Customer ans = customerDao.findByEmailId(customer.getEmail()).orElseThrow(()->new CustomerException("Invalid credential"));
+			Customer ans = customerDao.findByEmail(customer.getEmail()).orElseThrow(()->new CustomerException("Invalid credential"));
 			return ans;
 		}
 		
 		if(!customer.getPhone().equals(""))
 		{
-			Customer ans = customerDao.findByMobileNumber(customer.getPhone()).orElseThrow(()-> new CustomerException("Invalid Credential"));
+			Customer ans = customerDao.findByPhone(customer.getPhone()).orElseThrow(()-> new CustomerException("Invalid Credential"));
 			return ans;
 		}
 		else {

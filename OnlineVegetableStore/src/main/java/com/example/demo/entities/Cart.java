@@ -10,7 +10,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import lombok.Data;
 
+@Data
 @Entity
 public class Cart {
 	@Id
@@ -26,5 +28,18 @@ public class Cart {
 
 	public Cart() {
 		super();
+	}
+
+	public Cart(Integer customerId, List<Vegetable> listOfVegetables) {
+		super();
+		this.customerId = customerId;
+		this.listOfVegetables = listOfVegetables;
+	}
+
+	public Cart(Integer cartId, Integer customerId, List<Vegetable> listOfVegetables) {
+		super();
+		this.cartId = cartId;
+		this.customerId = customerId;
+		this.listOfVegetables = listOfVegetables;
 	}
 }

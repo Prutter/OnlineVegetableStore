@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -21,6 +22,7 @@ import jakarta.validation.constraints.Pattern;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class User {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer userId;
@@ -50,8 +52,6 @@ public class User {
 	@JsonProperty(access = Access.READ_ONLY)
 	private UserRole role;
 	
-//	private Address address;
-
 	public Integer getUserId() {
 		return userId;
 	}
@@ -88,12 +88,6 @@ public class User {
 	public void setRole(UserRole role) {
 		this.role = role;
 	}
-//	public Address getAddress() {
-//		return address;
-//	}
-//	public void setAddress(Address address) {
-//		this.address = address;
-//	}
 	public User() {
 		super();
 	}

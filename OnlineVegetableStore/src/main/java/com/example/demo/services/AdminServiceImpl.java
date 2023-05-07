@@ -25,7 +25,7 @@ public class AdminServiceImpl implements AdminService {
 	 */
 	@Override
 	public Admin addAdmin(Admin admin) {
-		Optional<Admin>  res= adminDao.findByEmailId(admin.getEmail());
+		Optional<Admin>  res= adminDao.findByEmail(admin.getEmail());
 		if(res.isPresent())
 			  throw new AdminException("Details are already exits ,Please try login ");
 		else if(admin==null)
@@ -41,7 +41,7 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public Admin updateAdmin(Admin admin) {
-		Optional<Admin> res= adminDao.findByName(admin.getName());
+		Optional<Admin> res= adminDao.findByUserName(admin.getUserName());
     Admin  adm	=res.orElseThrow(()-> new AdminException("Details are invalid so admin cannot be update "));
     
     if(!admin.getEmail().equals(""))
@@ -62,9 +62,12 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public Admin removeAdmin(Admin admin) {
-	  Admin res= adminDao.findById(admin.getAdminId()).orElseThrow(()->new AdminException("Details are invalid so admin cannot be deleted"));
-		adminDao.delete(res);
-		return res;
+	  Optional<Admin> res= adminDao.findById(admin.getUserId());
+	  if(res==null)
+		  throw new AdminException("Details are invalid so admin cannot be deleted");
+	  Admin a = res.get();
+	  adminDao.delete(a);
+	  return a;
 	}
 
 	
@@ -80,26 +83,22 @@ public class AdminServiceImpl implements AdminService {
 		
 		if(!admin.getEmail().equals(""))
 		{
-			Admin ans = adminDao.findByEmailId(admin.getEmail()).orElseThrow(()->new AdminException("Invalid Credential"));
+			Admin ans = adminDao.findByEmail(admin.getEmail()).orElseThrow(()->new AdminException("Invalid Credential"));
 			return ans;
 		}
 		else if(!admin.getPhone().equals(""))
 		{
-			Admin ans = adminDao.findByContactNumber(admin.getPhone()).orElseThrow(()->new AdminException("Invalid Credential"));
+			Admin ans = adminDao.findByPhone(admin.getPhone()).orElseThrow(()->new AdminException("Invalid Credential"));
 			return ans;
 		}
-		else if(!admin.getName().equals(""))
+		else if(!admin.getUserName().equals(""))
 		{
-		 Admin ans =adminDao.findByName(admin.getName()).orElseThrow(()->new AdminException("Invalid Credential"));
+		 Admin ans =adminDao.findByUserName(admin.getUserName()).orElseThrow(()->new AdminException("Invalid Credential"));
 		return ans;
 		}
 		else {
 			 throw new AdminException("Details are empty so Admin details cannot be found");
 		}
-		
-		
-		
-		
 	}
 
 }

@@ -1,35 +1,11 @@
 package com.example.demo.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Table;
-import jakarta.persistence.Embeddable;
-
-
-
-@Embeddable
-@Table(name = "address")
 public class Address {
-	
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Long id;
-
-	@Column(name = "flat_no")
     private String flatNo;
-
-    @Column(name = "building_name")
     private String buildingName;
-
-    @Column(name = "area")
     private String area;
-
-    @Column(name = "city")
     private String city;
-
-    @Column(name = "state")
     private String state;
-
-    @Column(name = "pincode")
     private String pincode;
 
     public Address() {

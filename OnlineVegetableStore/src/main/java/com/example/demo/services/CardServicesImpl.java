@@ -19,22 +19,22 @@ public class CardServicesImpl implements CardServices{
 	private CardRepository cardRepository;
 	
 	public CardWallet addCard(CardWallet cardwallet, Integer cid) throws CustomerException{
-		Optional<Customer> opt = customerRepository.findById(cid);
+		Optional<Customer> opt = customerRepository.findByUserId(cid);
 		if(opt == null)
 			throw new CustomerException("Customer with the given id does not exist");
 		Customer customer = opt.get();
-		cardwallet.setCustomerId(customer.getCustomerId());
+		cardwallet.setUserId(customer.getUserId());
 		cardwallet.setCardAmount(15000);
 		CardWallet cardWallet = cardRepository.save(cardwallet); 
 		return cardWallet;
 	}
 	
 	public Integer AddAmountToWallet(CardWallet cardWallet, Integer cid, Integer amount) throws CardException {
-		Optional<Customer> opt = customerRepository.findById(cid);
+		Optional<Customer> opt = customerRepository.findByUserId(cid);
 		if(opt == null)
 			throw new CustomerException("Customer with the given id does not exist");
 		Customer customer = opt.get();		
-		CardWallet card = cardRepository.findByCustomerId(cid);
+		CardWallet card = cardRepository.findByUserId(cid);
 		if(card.getCardAmount() < amount)
 			throw new CardException("Insufficient balance in your bank amount.");
 		card.setCardAmount(card.getCardAmount()-amount);
@@ -44,7 +44,7 @@ public class CardServicesImpl implements CardServices{
 
 	@Override
 	public CardWallet getCardDetails(Integer cid) throws CardException {
-		CardWallet wallet = cardRepository.findByCustomerId(cid);
+		CardWallet wallet = cardRepository.findByUserId(cid);
 		if(wallet == null)
 			throw new CardException("Card is not found with this customer id");
 		return wallet;

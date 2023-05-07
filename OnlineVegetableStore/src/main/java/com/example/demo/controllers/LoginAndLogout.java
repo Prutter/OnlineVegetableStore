@@ -15,8 +15,6 @@ import com.example.demo.entities.*;
 import com.example.demo.services.*;
 import com.example.demo.exceptions.*;
 
-
-
 @RestController
 public class LoginAndLogout {
 	

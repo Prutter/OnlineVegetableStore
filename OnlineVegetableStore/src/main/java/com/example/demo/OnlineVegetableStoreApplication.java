@@ -11,5 +11,4 @@ public class OnlineVegetableStoreApplication {
 		SpringApplication.run(OnlineVegetableStoreApplication.class, args);
 		System.out.println("Organic Oasis");
 	}
-
 }

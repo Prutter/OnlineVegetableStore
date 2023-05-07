@@ -11,27 +11,28 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
-
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.validation.constraints.NotEmpty;
 
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Entity
 @Data
-@EqualsAndHashCode(callSuper = false)
+@PrimaryKeyJoinColumn(name= "customerid")
+@EqualsAndHashCode(callSuper=false)
 public class Customer  extends User{
-	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer customerId;
-	@NotEmpty(message="Name is mandatory")
-    private String name;
-   
+//	@Id
+//	@GeneratedValue(strategy= GenerationType.IDENTITY)
+//    private Integer customerId;
+//	@NotEmpty(message="Name is mandatory")
+//    private String name;
+//   
     @Embedded
     private Address address;
     
     @OneToOne(cascade= CascadeType.ALL)
-    @JoinColumn(name="customerId")
     private Cart  cart;
 }
