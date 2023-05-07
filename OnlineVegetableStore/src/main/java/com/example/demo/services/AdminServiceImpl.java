@@ -25,7 +25,7 @@ public class AdminServiceImpl implements AdminService {
 	 */
 	@Override
 	public Admin addAdmin(Admin admin) {
-		Optional<Admin>  res= adminDao.findByEmailId(admin.getEmail());
+		Optional<Admin>  res= adminDao.findByEmail(admin.getEmail());
 		if(res.isPresent())
 			  throw new AdminException("Details are already exits ,Please try login ");
 		else if(admin==null)
@@ -62,7 +62,9 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public Admin removeAdmin(Admin admin) {
-	  Admin res= adminDao.findByEmailId(admin.getEmail()).orElseThrow(()->new AdminException("Details are invalid so admin cannot be deleted"));
+
+	  Admin res= adminDao.findByEmail(admin.getEmail()).orElseThrow(()->new AdminException("Details are invalid so admin cannot be deleted"));
+
 		adminDao.delete(res);
 		return res;
 	}
@@ -80,12 +82,12 @@ public class AdminServiceImpl implements AdminService {
 		
 		if(!admin.getEmail().equals(""))
 		{
-			Admin ans = adminDao.findByEmailId(admin.getEmail()).orElseThrow(()->new AdminException("Invalid Credential"));
+			Admin ans = adminDao.findByEmail(admin.getEmail()).orElseThrow(()->new AdminException("Invalid Credential"));
 			return ans;
 		}
 		else if(!admin.getPhone().equals(""))
 		{
-			Admin ans = adminDao.findByContactNumber(admin.getPhone()).orElseThrow(()->new AdminException("Invalid Credential"));
+			Admin ans = adminDao.findByPhone(admin.getPhone()).orElseThrow(()->new AdminException("Invalid Credential"));
 			return ans;
 		}
 		else if(!admin.getName().equals(""))
@@ -101,5 +103,7 @@ public class AdminServiceImpl implements AdminService {
 		
 		
 	}
+
+
 
 }

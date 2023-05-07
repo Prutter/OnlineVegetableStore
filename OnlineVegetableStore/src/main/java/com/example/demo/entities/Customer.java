@@ -11,7 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
-
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.validation.constraints.NotEmpty;
 
 
@@ -20,6 +20,7 @@ import lombok.EqualsAndHashCode;
 
 @Entity
 @Data
+@PrimaryKeyJoinColumn(name= "customerid")
 @EqualsAndHashCode(callSuper = false)
 public class Customer  extends User{
 //	@Id
@@ -32,6 +33,5 @@ public class Customer  extends User{
     private Address address;
     
     @OneToOne(cascade= CascadeType.ALL)
-    @JoinColumn(name="customerId")
     private Cart  cart;
 }

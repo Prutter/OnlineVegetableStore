@@ -1,5 +1,7 @@
 package com.example.demo.entities;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -8,11 +10,14 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Vegetable {
+public class CardWallet {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer vegetableId;
-	private String name;
-	private Integer price;
-	private Integer quantity;
+	private Integer cardWalletId;
+	private Integer customerId;
+	private String cardNo;
+	private Integer cvv;
+	private Integer cardAmount;
+	private Integer walletAmount;
+	private LocalDate expiryDate;
 }
