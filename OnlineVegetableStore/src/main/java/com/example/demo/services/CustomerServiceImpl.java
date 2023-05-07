@@ -129,15 +129,6 @@ public class CustomerServiceImpl implements CustomerService {
 		return list;
 	}
 
-	@Override
-	public Customer loginCustomer(Customer customer) {
-		if(customer==null)
-			  throw new CustomerException("Details are empty");
-		
-		Customer res = customerDao.findByUserNameAndpassword(customer.getUserName(), customer.getPassword()).orElseThrow(()->new CustomerNotFoundException("Invalid Credential"));
-			   
-		
-		return res;
-	}
+	
 
 }

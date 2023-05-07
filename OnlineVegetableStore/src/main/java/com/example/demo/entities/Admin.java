@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 
 
@@ -23,10 +24,11 @@ import java.util.List;
 @Table(name = "ADMIN")
 @Data
 @EqualsAndHashCode(callSuper = false)
+@PrimaryKeyJoinColumn(name = "adminid")
 public class Admin extends User {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Integer adminId;
+//@Id
+//@GeneratedValue(strategy = GenerationType.IDENTITY)
+//private Integer adminId;
 @NotBlank
 @NotEmpty(message = "Admin Name field cannot be empty")
 private String name;

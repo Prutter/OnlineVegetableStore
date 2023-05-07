@@ -7,5 +7,5 @@ public interface AdminService {
   public Admin updateAdmin(Admin admin);
   public Admin removeAdmin(Admin admin);
   public Admin viewAdmin(Admin admin);
-  public Admin loginAdmin(Admin admin);
+ 
 }

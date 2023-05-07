@@ -12,5 +12,5 @@ public interface CustomerService {
  public Customer removeCustomer(Customer customer);
  public Customer viewCustomer(Customer customer);
  public List<Customer> viewCustomerList();
- public Customer loginCustomer(Customer customer);
+ 
 }
