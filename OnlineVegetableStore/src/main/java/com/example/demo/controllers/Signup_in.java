@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.info.ProjectInfoProperties.Git;
 import org.springframework.http.HttpStatus;
 
 import org.springframework.http.ResponseEntity;
@@ -36,13 +37,15 @@ public class Signup_in {
 	}
     
     
+
+
+    
     @PostMapping("/adminRegister")
     public ResponseEntity<Admin>  adminRegister( @Valid  @RequestBody Admin admin) {
     	
     	Admin res = adminService.addAdmin(admin);
     	return new ResponseEntity<>(res,HttpStatus.ACCEPTED);
     }
-    
     
     
 }
