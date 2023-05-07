@@ -34,5 +34,5 @@ public class Customer  extends User{
     private Address address;
     
     @OneToOne(cascade= CascadeType.ALL)
-    private Cart  cart;
+    private Cart cart;
 }

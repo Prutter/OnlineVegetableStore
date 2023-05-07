@@ -23,7 +23,7 @@ public class Cart {
 	private Integer customerId;
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "cartId")
+	@JoinColumn(name = "cart_id")
 	private List<Vegetable> listOfVegetables;
 
 	public Cart() {

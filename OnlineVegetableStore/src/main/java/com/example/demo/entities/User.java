@@ -28,7 +28,6 @@ public class User {
 	private Integer userId;
 	
 	@Column(unique = true)
-	@Min(5)
 	private String userName;
 	
 	@Email

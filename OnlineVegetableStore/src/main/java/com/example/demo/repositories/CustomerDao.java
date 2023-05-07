@@ -9,9 +9,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CustomerDao extends JpaRepository<Customer,Integer> {
-public Optional<Customer> findByEmail(String emailId);
-public Optional<Customer> findByUserId(Integer id);
-public List<Customer> findByUserName(String name);
-public Optional<Customer> findByPhone(String mobileNumber);
-public Optional<Customer> findByUserNameAndPassword(String username,String password);
+	public Optional<Customer> findByEmail(String emailId);
+	public Optional<Customer> findByUserId(Integer id);
+	public List<Customer> findByUserName(String name);
+	public Optional<Customer> findByPhone(String mobileNumber);
+	public Optional<Customer> findByUserNameAndPassword(String username,String password);
 }
