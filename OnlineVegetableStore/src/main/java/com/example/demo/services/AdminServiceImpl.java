@@ -102,4 +102,13 @@ public class AdminServiceImpl implements AdminService {
 		
 	}
 
+	@Override
+	public Admin loginAdmin(Admin admin) {
+		if(admin==null)
+			   throw new AdminException("Invalid Credential");
+		
+		Admin res= adminDao.findByUserNameAndPassword(admin.getUserName(), admin.getPassword()).orElseThrow(()->new AdminException("Invalid Credential"));
+		return res;
+	}
+
 }

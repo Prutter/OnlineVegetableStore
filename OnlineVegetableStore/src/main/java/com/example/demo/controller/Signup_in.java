@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entities.Admin;
@@ -35,9 +36,11 @@ public class Signup_in {
 	}
     
     @GetMapping("/customerLogin")
-    public ResponseEntity<Customer> customerLogin( @Valid @RequestBody Customer cus)
+    public ResponseEntity<Customer> customerLogin( @Valid @RequestParam("userName") String userName, @RequestParam("password") String password)
     {
-    	Customer  res= service.viewCustomer(cus);
+    	Customer cus= new Customer();
+    	cus.setUserName(userName); cus.setPassword(password);
+    	Customer  res= service.loginCustomer(cus);
     	return new ResponseEntity<>(res, HttpStatus.ACCEPTED);
     }
     
@@ -52,9 +55,12 @@ public class Signup_in {
     
     
     @GetMapping("/adminLogin")
-     public ResponseEntity<Admin>  adminLogin(@Valid @RequestBody Admin admin){
+     public ResponseEntity<Admin>  adminLogin(@Valid @RequestParam("adminUsername") String userName,@RequestParam("password") String password){
     	
-    	Admin res  = adminService.viewAdmin(admin);
+    	Admin admin= new Admin();
+    	admin.setUserName(userName);
+    	admin.setPassword(password);
+    	Admin res  = adminService.loginAdmin(admin);
     	return new ResponseEntity<>(res,HttpStatus.ACCEPTED);
     }
 }
