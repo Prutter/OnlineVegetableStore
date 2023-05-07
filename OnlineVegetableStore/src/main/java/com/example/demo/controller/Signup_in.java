@@ -34,7 +34,7 @@ public class Signup_in {
 		return new ResponseEntity<>(res,HttpStatus.ACCEPTED);
 	}
     
-    @GetMapping("/customerLogin")
+    @GetMapping("/GET/Customer")
     public ResponseEntity<Customer> customerLogin( @Valid @RequestBody Customer cus)
     {
     	Customer  res= service.viewCustomer(cus);
@@ -51,7 +51,7 @@ public class Signup_in {
     }
     
     
-    @GetMapping("/adminLogin")
+    @GetMapping("/GET/Admin")
      public ResponseEntity<Admin>  adminLogin(@Valid @RequestBody Admin admin){
     	
     	Admin res  = adminService.viewAdmin(admin);

@@ -24,9 +24,9 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class Admin extends User {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Integer adminId;
+//@Id
+//@GeneratedValue(strategy = GenerationType.IDENTITY)
+//private Integer adminId;
 @NotBlank
 @NotEmpty(message = "Admin Name field cannot be empty")
 private String name;

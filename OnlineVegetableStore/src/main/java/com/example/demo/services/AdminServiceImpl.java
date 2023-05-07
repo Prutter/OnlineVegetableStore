@@ -62,7 +62,7 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public Admin removeAdmin(Admin admin) {
-	  Admin res= adminDao.findById(admin.getAdminId()).orElseThrow(()->new AdminException("Details are invalid so admin cannot be deleted"));
+	  Admin res= adminDao.findByEmailId(admin.getEmail()).orElseThrow(()->new AdminException("Details are invalid so admin cannot be deleted"));
 		adminDao.delete(res);
 		return res;
 	}

@@ -22,9 +22,9 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class Customer  extends User{
-	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer customerId;
+//	@Id
+//	@GeneratedValue(strategy= GenerationType.IDENTITY)
+//    private Integer customerId;
 	@NotEmpty(message="Name is mandatory")
     private String name;
    
