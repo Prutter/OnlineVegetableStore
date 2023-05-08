@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORGANIC OASIS</title>
+    <style>
+        *{
+            text-align: center;
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .main{
+            border: 1px solid red;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+          color: green;
+         background: url(./76811.jpg);
+         
+        }
+.cont{
+    width: 90%;
+    height: 85%;
+    margin: auto;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    border-radius: 60px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   background-color: white;
+   opacity: .9;
+}
+.cont>div{
+    /* border: 1px solid blue; */
+    width: 49%;
+
+}
+.cont>div>img{
+
+    width: 100%;
+}
+#logo{
+    margin-top: 50px;
+    width: 100px;
+    /* height: 100px; */
+}
+.form{
+    
+    width: 60%;
+    height: 50%;
+    margin: auto;
+    margin-top: 50px;
+    /* border: 1px solid red; */
+}
+h3{
+    margin-bottom: 20px;
+}
+input{
+   
+    width: 98%;
+    margin-bottom: 30px;
+    height: 40px;
+    border-radius: 50px;
+    border: 3px solid green;
+    font-weight: bolder;
+    /* text-align: left; */
+}
+#button{
+    color: white;
+    background-color: green;
+    border: 0px;
+    border-radius: 50px;
+    height: 48px;
+    width: 80%;
+    font-weight: bold;
+    font-size: large;
+}
+#button:hover{
+    cursor: pointer;
+    background-color: white;
+    color: green;
+    border: 3px solid green;
+}
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="cont">
+            <div>
+                <img src="./images/signup.jpg" alt="">
+            </div>
+            <div>
+                <img src="./images/logo1.png" id="logo" alt="">
+                <h1>ORGANIC OASIS</h1>
+              <div class="form">
+                <form>
+                    <h3>login / register</h3>
+                    <input type="text" placeholder="Enter Username" id="username" required>
+                    <input type="text" placeholder="Password"  id="password" required>
+                    <input type="submit" value="Submit" id="button">
+                </form>
+              </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="./Scripts/login.js"></script>

@@ -43,7 +43,6 @@ public class User {
 	@NotEmpty
 	@NotBlank
 	@Pattern(regexp = "^(?=.*[0-9])(?=.*[@#$&])(?=\\S+$).{8,16}$", message = "Password must contains 8 to 16 characters and it should have at least one digit, one alphabet, one special character from the set [@#$&] and no whitespace allowed.")
-	@JsonProperty(access = Access.WRITE_ONLY)
 	private String password;
 	
 	@Pattern(regexp="^[8-9]\\d{9}")
@@ -51,8 +50,7 @@ public class User {
 	private String phone;
 	
 	@JsonProperty(access = Access.READ_ONLY)
-	@Enumerated(EnumType.STRING)
-	private UserRole role;
+	private String role;
 	
 //	private Address address;
 
@@ -86,13 +84,14 @@ public class User {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public UserRole getRole() {
+	
+public String getRole() {
 		return role;
 	}
-	public void setRole(UserRole role) {
+	public void setRole(String role) {
 		this.role = role;
 	}
-//	public Address getAddress() {
+	//	public Address getAddress() {
 //		return address;
 //	}
 //	public void setAddress(Address address) {
@@ -104,7 +103,7 @@ public class User {
 	
 	public User(@Min(5) String userName, @Email @NotNull @NotEmpty @NotBlank String email,
 			@NotNull @NotEmpty @NotBlank @Pattern(regexp = "^(?=.*[0-9])(?=.*[@#$&])(?=\\S+$).{8,16}$", message = "Password must contains 8 to 16 characters and it should have at least one digit, one alphabet, one special character from the set [@#$&] and no whitespace allowed.") String password,
-			@Pattern(regexp = "^[8-9]\\d{9}") String phone, UserRole role) {
+			@Pattern(regexp = "^[8-9]\\d{9}") String phone, String role) {
 		super();
 		this.userName = userName;
 		this.email = email;
@@ -115,7 +114,7 @@ public class User {
 
 	public User(Integer userId, @Min(5) String userName, @Email @NotNull @NotEmpty @NotBlank String email,
 			@NotNull @NotEmpty @NotBlank @Pattern(regexp = "^(?=.*[0-9])(?=.*[@#$&])(?=\\S+$).{8,16}$", message = "Password must contains 8 to 16 characters and it should have at least one digit, one alphabet, one special character from the set [@#$&] and no whitespace allowed.") String password,
-			@Pattern(regexp = "^[8-9]\\d{9}") String phone, UserRole role) {
+			@Pattern(regexp = "^[8-9]\\d{9}") String phone, String role) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
