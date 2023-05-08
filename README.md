@@ -11,3 +11,18 @@
 - Payment
 
 <img align="right" src="https://user-images.githubusercontent.com/110126989/236896906-025ec4f7-2b58-49d6-88ce-025c5dc428fa.png" />
+## Front-end Technolgy
+ - HTML
+ - CSS
+ - JavaScript
+
+## Backend Technolgy
+- Java
+- Spring Boot
+- Hybernate (ORM or JPA)
+- MySql
+
+## Tools
+- Visual Studio -> Front-end
+- Spring Tool Suite -> Back-end
+
