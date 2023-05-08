@@ -27,3 +27,16 @@
 - Visual Studio -> Front-end
 - Spring Tool Suite -> Back-end
 
+## Features
+- User can Register
+- User can create a cart
+- User can use wallet as well as card for purchase
+
+
+## Contributers
+- Kashish Bansal
+- Himanshu
+- MD. Monazir Hussain
+- Soumit Das
+- Ankit Choubey
+
