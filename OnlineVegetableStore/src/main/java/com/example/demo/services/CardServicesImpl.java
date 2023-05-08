@@ -29,16 +29,13 @@ public class CardServicesImpl implements CardServices{
 		return cardWallet;
 	}
 	
-	public Integer AddAmountToWallet(CardWallet cardWallet, Integer cid, Integer amount) throws CardException {
-		Optional<Customer> opt = customerRepository.findByUserId(cid);
-		if(opt == null)
-			throw new CustomerException("Customer with the given id does not exist");
-		Customer customer = opt.get();		
+	public Integer AddAmountToWallet(Integer cid, Integer amount) throws CardException {	
 		CardWallet card = cardRepository.findByUserId(cid);
 		if(card.getCardAmount() < amount)
 			throw new CardException("Insufficient balance in your bank amount.");
 		card.setCardAmount(card.getCardAmount()-amount);
 		card.setWalletAmount(card.getWalletAmount()+ amount);
+		cardRepository.save(card);
 		return amount;
 	}
 

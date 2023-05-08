@@ -29,7 +29,7 @@ public class Cart {
 	public Cart() {
 		super();
 	}
-
+	
 	public Cart(Integer customerId, List<Vegetable> listOfVegetables) {
 		super();
 		this.customerId = customerId;
@@ -41,5 +41,10 @@ public class Cart {
 		this.cartId = cartId;
 		this.customerId = customerId;
 		this.listOfVegetables = listOfVegetables;
+	}
+
+	public Cart(Integer customerId) {
+		super();
+		this.customerId = customerId;
 	}
 }

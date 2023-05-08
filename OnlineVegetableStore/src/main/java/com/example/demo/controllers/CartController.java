@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -22,9 +23,9 @@ public class CartController {
 	@Autowired
 	private CartServices cartservices;
 	
-	@PostMapping("/organicoasis/{id}")
-	public ResponseEntity<Cart> addToCart(@RequestBody Vegetable v,@PathVariable("id") Integer cid){
-		Cart cart = cartservices.addToCart(v, cid);
+	@GetMapping("/organicoasis/{id}/{vid}")
+	public ResponseEntity<Cart> addToCart(@PathVariable("vid") Integer vid,@PathVariable("id") Integer cid){
+		Cart cart = cartservices.addToCart(vid, cid);
 		return new ResponseEntity<>(cart, HttpStatus.CREATED);
 	}
 	

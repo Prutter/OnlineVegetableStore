@@ -25,9 +25,14 @@ public class CardController {
 	}
 	
 	@PostMapping("/orgaincoasis/transaction/{cid}/{amount}")
-	public ResponseEntity<CardWallet> addToWallet(@RequestBody CardWallet card ,@PathVariable("amount") Integer Amount,@PathVariable("cid") Integer cid){
-		CardWallet cardwallet = cardservices.addCard(card, cid);
-		return new ResponseEntity<CardWallet>(cardwallet, HttpStatus.ACCEPTED);
+	public ResponseEntity<Integer> addToWallet(@PathVariable("amount") Integer Amount,@PathVariable("cid") Integer cid){
+		Integer cardwallet = null;
+		try {
+			cardwallet = cardservices.AddAmountToWallet(cid, Amount);
+		} catch (CardException e) {
+			return new ResponseEntity<>(Integer.valueOf(-1), HttpStatus.BAD_GATEWAY);
+		}
+		return new ResponseEntity<>(cardwallet, HttpStatus.ACCEPTED);
 	}
 	
 	@GetMapping("/organicoasis/getcard/{cid}")

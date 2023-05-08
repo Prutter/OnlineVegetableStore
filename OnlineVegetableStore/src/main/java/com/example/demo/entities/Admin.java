@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 
@@ -28,16 +29,9 @@ import java.util.List;
 //@EqualsAndHashCode(callSuper = false)
 public class Admin extends User {
 	
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	private Integer adminId;
-//	
-//	@NotBlank
-//	@NotEmpty(message = "Admin Name field cannot be empty")
-//	private String name;
-	
-	@Embedded
-	private Address officeAddress;
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name="addid")
+    private Address address;
 	
 	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
 	@JoinColumn(name="adminId")

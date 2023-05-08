@@ -30,7 +30,7 @@ public class UserLoginServicesImpl implements UserLoginServices{
 			if(!existingUser.getPassword().equals(dto.getPassword())) throw new LoginException("Please Enter a valid password");
 			Optional<LoggedSession> validLoggedSessionOpt =  lsr.findById(existingUser.getUserId());
 			if(validLoggedSessionOpt.isPresent()) return validLoggedSessionOpt.get();
-			String key= existingUser.getRole()+"."+generateRandomChars(16);
+			String key= existingUser.getRole().charAt(0)+"."+generateRandomChars(8);
 			LoggedSession currentUserSession = new LoggedSession(existingUser.getUserId(),key,existingUser.getRole(),LocalDateTime.now());
 			lsr.save(currentUserSession);
 			return currentUserSession;
@@ -48,7 +48,6 @@ public class UserLoginServicesImpl implements UserLoginServices{
 	}
 	@Override
 	public String logOutFromAccount(String key) throws LoginException {
-		System.out.println("hello"+key);
 		LoggedSession validLoggedSession = lsr.findByuniquekey(key);
 		if(validLoggedSession==null) throw new LoginException("User Not Logged ");
 		lsr.delete(validLoggedSession);

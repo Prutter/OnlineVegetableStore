@@ -18,7 +18,6 @@ import com.example.demo.services.CustomerService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/VegStore")
 public class Signup_in {
 	
 	@Autowired
@@ -28,33 +27,17 @@ public class Signup_in {
 	private AdminService adminService;
 	
     @PostMapping("/customerRegister")
-	public ResponseEntity<Customer> customerRegister(@Valid @RequestBody Customer cus ){
+	public ResponseEntity<Customer> customerRegister(@RequestBody Customer cus ){
     	Customer res =  service.addCustomer(cus);
     	
 		return new ResponseEntity<>(res,HttpStatus.ACCEPTED);
 	}
     
-    @GetMapping("/customerLogin")
-    public ResponseEntity<Customer> customerLogin( @Valid @RequestBody Customer cus)
-    {
-    	Customer  res= service.viewCustomer(cus);
-    	return new ResponseEntity<>(res, HttpStatus.ACCEPTED);
-    }
-    
-    
-    
     @PostMapping("/adminRegister")
-    public ResponseEntity<Admin>  adminRegister( @Valid  @RequestBody Admin admin) {
+    public ResponseEntity<Admin>  adminRegister( @RequestBody Admin admin) {
     	
     	Admin res = adminService.addAdmin(admin);
     	return new ResponseEntity<>(res,HttpStatus.ACCEPTED);
     }
-    
-    
-    @GetMapping("/adminLogin")
-     public ResponseEntity<Admin>  adminLogin(@Valid @RequestBody Admin admin){
-    	
-    	Admin res  = adminService.viewAdmin(admin);
-    	return new ResponseEntity<>(res,HttpStatus.ACCEPTED);
-    }
+   
 }

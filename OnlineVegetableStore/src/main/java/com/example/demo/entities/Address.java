@@ -1,26 +1,43 @@
 package com.example.demo.entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Address {
-    private String flatNo;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer addressId;
+	private Integer user;
+	private String flatNo;
     private String buildingName;
     private String area;
     private String city;
     private String state;
     private String pincode;
+    
+    public Integer getUser() {
+		return user;
+	}
 
-    public Address() {
+	public void setUser(Integer user) {
+		this.user = user;
+	}
+
+	public Address() {
     }
 
-    public Address(String flatNo, String buildingName, String area, String city, String state, String pincode) {
-        this.flatNo = flatNo;
-        this.buildingName = buildingName;
-        this.area = area;
-        this.city = city;
-        this.state = state;
-        this.pincode = pincode;
-    }
+	public Integer getAddressId() {
+		return addressId;
+	}
 
-    public String getFlatNo() {
+	public void setAddressId(Integer addressId) {
+		this.addressId = addressId;
+	}
+
+	public String getFlatNo() {
 		return flatNo;
 	}
 
@@ -67,12 +84,33 @@ public class Address {
 	public void setPincode(String pincode) {
 		this.pincode = pincode;
 	}
-	@Override
-	public String toString() {
-		return "Address [flatNo=" + flatNo + ", buildingName=" + buildingName + ", area=" + area + ", city=" + city
-				+ ", state=" + state + ", pincode=" + pincode + "]";
+
+	public Address(Integer user, String flatNo, String buildingName, String area, String city, String state,
+			String pincode) {
+		super();
+		this.user = user;
+		this.flatNo = flatNo;
+		this.buildingName = buildingName;
+		this.area = area;
+		this.city = city;
+		this.state = state;
+		this.pincode = pincode;
+	}
+
+	public Address(Integer addressId, Integer user, String flatNo, String buildingName, String area, String city,
+			String state, String pincode) {
+		super();
+		this.addressId = addressId;
+		this.user = user;
+		this.flatNo = flatNo;
+		this.buildingName = buildingName;
+		this.area = area;
+		this.city = city;
+		this.state = state;
+		this.pincode = pincode;
 	}
 
 	
+    	
 }
 

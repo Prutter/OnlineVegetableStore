@@ -14,13 +14,12 @@ public class LoggedSession {
 	@Column(unique = true)
 	private Integer userId;
 	private String uniquekey;
-	@Enumerated(value = EnumType.STRING)
-	private UserRole role;
+	private String role;
 	private LocalDateTime localDateTime;
 	public LoggedSession() {
 		super();
 	}
-	public LoggedSession(Integer userId, String uniquekey, UserRole role, LocalDateTime localDateTime) {
+	public LoggedSession(Integer userId, String uniquekey, String role, LocalDateTime localDateTime) {
 		super();
 		this.userId = userId;
 		this.uniquekey = uniquekey;
@@ -39,10 +38,10 @@ public class LoggedSession {
 	public void setUniquekey(String uniquekey) {
 		this.uniquekey = uniquekey;
 	}
-	public UserRole getRole() {
+	public String getRole() {
 		return role;
 	}
-	public void setRole(UserRole role) {
+	public void setRole(String role) {
 		this.role = role;
 	}
 	public LocalDateTime getLocalDateTime() {

@@ -6,7 +6,7 @@ import java.util.*;
 
 public interface CartServices {
 	
-	public Cart addToCart(Vegetable vegetable,Integer cid);
+	public Cart addToCart(Integer vid,Integer cid);
 	
 	public Cart IncreaseVegetableQuantity(Integer vegetableId, Integer quantity, Integer cid);
 	

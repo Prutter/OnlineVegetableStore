@@ -6,5 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.demo.entities.LoggedSession;
 
 public interface LoggedSessionRepo extends JpaRepository<LoggedSession, Integer> {
-	public LoggedSession findByuniquekey(String String);
+	public LoggedSession findByuniquekey(String key);
+	public LoggedSession findByUserId(Integer id);
 }

@@ -11,6 +11,7 @@ import com.example.demo.entities.Customer;
 import com.example.demo.entities.Vegetable;
 import com.example.demo.exceptions.CustomerException;
 import com.example.demo.exceptions.VegetableException;
+import com.example.demo.repositories.CartRepository;
 import com.example.demo.repositories.CustomerDao;
 import com.example.demo.repositories.VegetableRepository;
 
@@ -18,36 +19,50 @@ import com.example.demo.repositories.VegetableRepository;
 public class CartServicesImpl implements CartServices{
 	
 	@Autowired
-	private CustomerDao customerRepository;
+	private CartRepository cartrepository;
 	
 	@Autowired
 	private VegetableRepository vegetablerepo;
 
 	@Override
-	public Cart addToCart(Vegetable vegetable, Integer cid) {
-		Optional<Customer> opt = customerRepository.findByUserId(cid);
+	public Cart addToCart(Integer vid, Integer cid) {
+		Optional<Vegetable> veg = vegetablerepo.findById(vid);
+		if(veg== null)
+			throw new VegetableException("vegetable with this id not exist");
+		Vegetable vegetable = veg.get();
+	
+		Optional<Cart> opt = cartrepository.findById(cid);
 		if(opt==null)
-			throw new CustomerException("Customer with this id does not exist");
-		Customer customer = opt.get();
-		Cart customerCart = customer.getCart();
+			throw new CustomerException("Cart with this id does not exist");
+		Cart cart = opt.get();
 		
-		customerCart.getListOfVegetables().add(vegetable);
-		return customerCart;
+		System.out.println(cart);
+		System.out.println(vegetable);
+		boolean flag = false;
+		List<Vegetable> mylist = cart.getListOfVegetables();
+		for(int i=0;i<mylist.size();i++) {
+			if(mylist.get(i).equals(vegetable)) {
+				mylist.get(i).setQuantity(mylist.get(i).getQuantity()+1);
+				flag = true;
+			}
+		}
+		if(flag == false)
+		cart.getListOfVegetables().add(vegetable);
+		cartrepository.save(cart);
+		return cart;
 	}
 
 	@Override
 	public Cart IncreaseVegetableQuantity(Integer vegetableId, Integer quantity, Integer cid) {
-		Optional<Customer> opt = customerRepository.findByUserId(cid);
+		Optional<Cart> opt = cartrepository.findById(cid);
 		if(opt==null)
-			throw new CustomerException("Customer with this id does not exist");
-		Customer customer = opt.get();
-		
-		Cart customerCart = customer.getCart();
-		List<Vegetable> mylist = customerCart.getListOfVegetables();
+			throw new CustomerException("Cart with this id does not exist");
+		Cart cart = opt.get();
+		List<Vegetable> mylist = cart.getListOfVegetables();
 		for(int i=0;i<mylist.size();i++) {
 			if(mylist.get(i).getVegId()== vegetableId) {
 				mylist.get(i).setQuantity(mylist.get(i).getQuantity()+ quantity);
-				return customerCart;
+				return cart;
 			}
 		}
 		throw new VegetableException("Vegetable with this id does not exist");
@@ -55,17 +70,15 @@ public class CartServicesImpl implements CartServices{
 
 	@Override
 	public Cart DecreaseVegetableQuantity(Integer vegetableId, Integer quantity, Integer cid) {
-		Optional<Customer> opt = customerRepository.findByUserId(cid);
+		Optional<Cart> opt = cartrepository.findById(cid);
 		if(opt==null)
-			throw new CustomerException("Customer with this id does not exist");
-		Customer customer = opt.get();
-		
-		Cart customerCart = customer.getCart();
-		List<Vegetable> mylist = customerCart.getListOfVegetables();
+			throw new CustomerException("Cart with this id does not exist");
+		Cart cart = opt.get();
+		List<Vegetable> mylist = cart.getListOfVegetables();
 		for(int i=0;i<mylist.size();i++) {
 			if(mylist.get(i).getVegId()== vegetableId){
 				mylist.get(i).setQuantity(mylist.get(i).getQuantity() - quantity);
-				return customerCart;
+				return cart;
 			}
 		}
 		throw new VegetableException("Vegetable with this id does not exist");
@@ -78,16 +91,14 @@ public class CartServicesImpl implements CartServices{
 			throw new VegetableException("vegetable does not exist");
 		Vegetable vegetable= vege.get();
 		
-		Optional<Customer> opt = customerRepository.findByUserId(cid);
+		Optional<Cart> opt = cartrepository.findById(cid);
 		if(opt==null)
-			throw new CustomerException("Customer with this id does not exist");
-		Customer customer = opt.get();
-		
-		Cart customerCart = customer.getCart();
-		for(Vegetable v : customerCart.getListOfVegetables()) {
+			throw new CustomerException("Cart with this id does not exist");
+		Cart cart = opt.get();
+		for(Vegetable v : cart.getListOfVegetables()) {
 			if(v== vegetable) {
-				customerCart.getListOfVegetables().remove(v);
-				return customerCart;
+				cart.getListOfVegetables().remove(v);
+				return cart;
 			}
 		}
 		throw new VegetableException("Vegetable not added in the cart");
@@ -95,28 +106,23 @@ public class CartServicesImpl implements CartServices{
 
 	@Override
 	public Cart RemoveAllVegetables(Integer cid) {
-		Optional<Customer> opt = customerRepository.findByUserId(cid);
+		Optional<Cart> opt = cartrepository.findById(cid);
 		if(opt==null)
-			throw new CustomerException("Customer with this id does not exist");
-		Customer customer = opt.get();
-		
-		Cart customerCart = customer.getCart();
-		for(Vegetable v : customerCart.getListOfVegetables()) {
-			customerCart.getListOfVegetables().remove(v);
+			throw new CustomerException("Cart with this id does not exist");
+		Cart cart = opt.get();
+		for(Vegetable v : cart.getListOfVegetables()) {
+			cart.getListOfVegetables().remove(v);
 		}
-		return customerCart;
+		return cart;
 	}
 
 	@Override
 	public List<Vegetable> viewAllVegetables(Integer cid) {
-		Optional<Customer> opt = customerRepository.findByUserId(cid);
+		Optional<Cart> opt = cartrepository.findById(cid);
 		if(opt==null)
-			throw new CustomerException("Customer with this id does not exist");
-		Customer customer = opt.get();
-		
-		Cart customerCart = customer.getCart();
-		
-		return customerCart.getListOfVegetables();
+			throw new CustomerException("Cart with this id does not exist");
+		Cart cart = opt.get();
+		return cart.getListOfVegetables();
 	}
 	
 }

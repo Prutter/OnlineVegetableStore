@@ -28,10 +28,6 @@ public class AdminServiceImpl implements AdminService {
 		Optional<Admin>  res= adminDao.findByEmail(admin.getEmail());
 		if(res.isPresent())
 			  throw new AdminException("Details are already exits ,Please try login ");
-		else if(admin==null)
-		{ 
-			 throw new AdminException("Details are empty so please try again with correct details");
-		}
 		else {
 			Admin response=   adminDao.save(admin);    
 			return response;
@@ -41,13 +37,11 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public Admin updateAdmin(Admin admin) {
-		Optional<Admin> res= adminDao.findByUserName(admin.getUserName());
+	Optional<Admin> res= adminDao.findByUserName(admin.getUserName());
     Admin  adm	=res.orElseThrow(()-> new AdminException("Details are invalid so admin cannot be update "));
     
-    if(!admin.getEmail().equals(""))
-	{
+    if(!admin.getEmail().equals("")){
 		adm.setEmail(admin.getEmail());
-		
 	}
     if(!admin.getPhone().equals(""))
 	{

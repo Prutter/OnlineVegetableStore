@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,6 +19,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import lombok.Builder.Default;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -48,8 +50,10 @@ public class User {
 	@Column(unique = true)
 	private String phone;
 	
-	@JsonProperty(access = Access.READ_ONLY)
-	private UserRole role;
+	@NotBlank
+	@NotEmpty
+	@NotNull
+	private String role;
 	
 	public Integer getUserId() {
 		return userId;
@@ -81,10 +85,11 @@ public class User {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public UserRole getRole() {
+	
+	public String getRole() {
 		return role;
 	}
-	public void setRole(UserRole role) {
+	public void setRole(String role) {
 		this.role = role;
 	}
 	public User() {
@@ -93,7 +98,7 @@ public class User {
 	
 	public User(@Min(5) String userName, @Email @NotNull @NotEmpty @NotBlank String email,
 			@NotNull @NotEmpty @NotBlank @Pattern(regexp = "^(?=.*[0-9])(?=.*[@#$&])(?=\\S+$).{8,16}$", message = "Password must contains 8 to 16 characters and it should have at least one digit, one alphabet, one special character from the set [@#$&] and no whitespace allowed.") String password,
-			@Pattern(regexp = "^[8-9]\\d{9}") String phone, UserRole role) {
+			@Pattern(regexp = "^[8-9]\\d{9}") String phone, String role) {
 		super();
 		this.userName = userName;
 		this.email = email;
@@ -104,7 +109,7 @@ public class User {
 
 	public User(Integer userId, @Min(5) String userName, @Email @NotNull @NotEmpty @NotBlank String email,
 			@NotNull @NotEmpty @NotBlank @Pattern(regexp = "^(?=.*[0-9])(?=.*[@#$&])(?=\\S+$).{8,16}$", message = "Password must contains 8 to 16 characters and it should have at least one digit, one alphabet, one special character from the set [@#$&] and no whitespace allowed.") String password,
-			@Pattern(regexp = "^[8-9]\\d{9}") String phone, UserRole role) {
+			@Pattern(regexp = "^[8-9]\\d{9}") String phone, String role) {
 		super();
 		this.userId = userId;
 		this.userName = userName;

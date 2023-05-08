@@ -8,7 +8,7 @@ public interface CardServices {
 	
 	public CardWallet addCard(CardWallet cardwallet, Integer cid) throws CustomerException;
 	
-	public Integer AddAmountToWallet(CardWallet cardWallet, Integer cid, Integer amount) throws CardException;
+	public Integer AddAmountToWallet(Integer cid, Integer amount) throws CardException;
 	
 	public CardWallet getCardDetails(Integer cid) throws CardException;
 }
