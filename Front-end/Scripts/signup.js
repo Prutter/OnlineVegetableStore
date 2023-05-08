@@ -1,6 +1,6 @@
-let submitbtn= document.querySelector("#submit-btn");
+let submitbtn= document.querySelector("form");
 const url= "http://localhost:8088/VegStore/customerRegister";
-submitbtn.onclick=(e)=>{
+submitbtn.onsubmit=(e)=>{
      e.preventDefault();
    
     let name= document.querySelector("#name").value;
