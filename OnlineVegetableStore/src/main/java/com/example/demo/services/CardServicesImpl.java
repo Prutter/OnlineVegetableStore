@@ -23,7 +23,7 @@ public class CardServicesImpl implements CardServices{
 		if(opt == null)
 			throw new CustomerException("Customer with the given id does not exist");
 		Customer customer = opt.get();
-		cardwallet.setCustomerId(customer.getCustomerId());
+		cardwallet.setCustomerId(customer.getUserId());
 		cardwallet.setCardAmount(15000);
 		CardWallet cardWallet = cardRepository.save(cardwallet); 
 		return cardWallet;
