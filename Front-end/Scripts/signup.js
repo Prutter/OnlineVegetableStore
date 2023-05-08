@@ -1,8 +1,8 @@
 let submitbtn= document.querySelector("#submit-btn");
 const url= "http://localhost:8088/VegStore/customerRegister";
 submitbtn.onclick=(e)=>{
-    e.preventDefault();
-    let form= document.querySelector("form");
+     e.preventDefault();
+   
     let name= document.querySelector("#name").value;
     let username= document.querySelector("#username").value;
     let email= document.querySelector("#email").value;
@@ -32,7 +32,13 @@ submitbtn.onclick=(e)=>{
 
     signupdata(url,ob);  
     console.log("working");
-    form.reset();
+
+    document.querySelector("#username").value="";
+    document.querySelector("#email").value="";
+    document.querySelector("#phone").value="";
+    document.querySelector("#address").value="";
+     document.querySelector("#password").value="";
+   
 
 };
 
