@@ -11,7 +11,7 @@ body {
 	background-color: #64e45d;
 }
 
-
+/* 
 nav {
 	background-color: #ffffff;
 	color: #64e45d;
@@ -28,8 +28,8 @@ nav {
 nav .logo img {
 	height: 60px;
 	padding-left: 30px;
-	/* background-color: #fff; */
-}
+	background-color: #fff; 
+ } */
 
 nav ul.navigation {
 	list-style: none;
@@ -55,7 +55,7 @@ nav ul.navigation li a {
 nav ul.navigation li a:hover {
 	background-color: #fff;
 	color: #00a74c;
-}
+} */
 
 /* nav .menu-toggle {
 	display: block;
