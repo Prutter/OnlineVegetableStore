@@ -4,6 +4,10 @@
 
 # Diagram
 ![Diagram](https://user-images.githubusercontent.com/25690078/236969385-21215e0e-5212-4897-945b-787071bba775.png)
+
+#FlowChart
+![Start](https://user-images.githubusercontent.com/25690078/236977507-6297a4e0-a08a-480e-ad4b-6b60defffc19.png)
+
 # This is an Online Vegitable store  application for purchasing fresh fruits and Vegitables.
 ## Modules
 - Admin
