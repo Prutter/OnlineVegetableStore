@@ -9,6 +9,7 @@
 ![Start](https://user-images.githubusercontent.com/25690078/236978805-b0b8e379-d328-4835-9e34-a72ba0a4a0cd.png)
 
 # This is an Online Vegitable store  application for purchasing fresh fruits and Vegitables.
+##Organic Oasis is a online platform for helping the users who want to sell their items into open market and those who want to purchase it from there. It tracks the and manages the information of both persons.
 ## Modules
 - Admin
 - Customer
