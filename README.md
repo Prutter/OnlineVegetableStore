@@ -2,7 +2,8 @@
 # Organic Oasis
 ![signup1](https://user-images.githubusercontent.com/110126989/236902446-f8ef4c41-f78e-4303-b137-ddb88c48fccc.jpg)
 
-
+#Diagram
+![Diagram](https://user-images.githubusercontent.com/25690078/236969385-21215e0e-5212-4897-945b-787071bba775.png)
 # This is an Online Vegitable store  application for purchasing fresh fruits and Vegitables.
 ## Modules
 - Admin
