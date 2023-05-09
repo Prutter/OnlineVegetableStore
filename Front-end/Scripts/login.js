@@ -4,19 +4,29 @@ submitbtn.onsubmit= (e)=>{
     e.preventDefault();
     let username= document.querySelector("#username").value;
     let password= document.querySelector("#password").value;
-    let obj = JSON.parse(localStorage.getItem("customer"));
+    let obj = JSON.parse(localStorage.getItem("customer"))||undefined;
+  
     console.log(obj);
-    if(obj.userName === username && password===obj.password)
-       {
-        
-        
-        alert("login successful");
-        window.location.href="index.html"
-       }
-        else 
-          {
-            alert("Credential Invalid");
-          }
+    if(obj== undefined)
+         {
+            alert("User credential not exist,please signup first");
+         }
+         else
+         {
+            if(obj.userName === username && password===obj.password)
+            {
+                
+                
+                alert("login successful");
+                localStorage.setItem("loggedsession",JSON.stringify(true));
+                window.location.href="index.html"
+            }
+                else 
+                {
+                    alert("Credential Invalid");
+                }
+
+        }
 
     
 

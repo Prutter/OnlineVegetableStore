@@ -1,0 +1,109 @@
+body{
+    background-image: url("../images/signup1.jpg");
+}
+
+#nav-bar{
+    width: 80%;
+    margin:auto;
+    border :0px solid green;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#nav-bar img{
+  height: 80px;
+  width:auto;
+}
+
+#nav-bar a{
+    text-decoration: none;
+    padding: 8px;
+    background-color: green;
+    color: white;
+    border-radius: 6px;
+}
+
+#nav-bar a:hover{
+    background-color: white;
+    color:green;
+}
+#display-div{
+    display: none;
+}
+
+#display-div h2{
+    padding:5px;
+    background-color: green;
+    color:white;
+}
+
+#display-div h2:hover{
+    background-color: white;
+    color:green;
+}
+
+#content{
+    width:70%;
+    margin:auto;
+    padding-top: 100px;
+}
+
+#content h1{
+    font-size: 80px;
+    color:white;
+}
+#content h2{
+    font-size: 50px;
+}
+
+#buy-btn2{
+    padding:10px;
+    background-color: green;
+    color:white;
+    font-size: 25px;
+    border-radius: 8px;
+}
+
+#logout-div{
+    display: none;
+}
+
+#cart-div{
+    pointer-events: none;
+  
+}
+
+#address-page{
+    width:90%;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top:20px;
+    display: none;
+   
+    
+}
+
+#address-page>form{
+    width:40%;
+    margin:auto;
+    margin-top:10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 300px;
+   
+}
+
+#address-btn{
+    margin-bottom: 10px;
+    padding:8px;
+    border-radius: 5px;
+    background-color: green;
+    color:white;
+    outline: none;
+    cursor: pointer;
+    font-size: medium;
+}

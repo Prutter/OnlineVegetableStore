@@ -4,6 +4,10 @@
     margin: 0;
     padding: 0;
 }
+body{
+    background-image: url(../images/signup2.jpg);
+}
+
 
 .main {
     /* border: 1px solid red; */
@@ -11,7 +15,6 @@
     padding: 0;
     height: auto;
     color: rgb(117, 184, 117);
-    background-image: url(../images/signup2.jpg);
 }
 
 .cont {
@@ -31,7 +34,7 @@
 .cont>div {
     /* border: 1px solid blue; */
     margin: auto;
-    width: 49%;
+    width: 45%;
 
 }
 
@@ -87,31 +90,7 @@ input {
     border: 3px solid green;
 }
 
-#address-page{
-    width:90%;
-    margin:auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top:20px;
-    display: none;
-   
-    
-}
 
-#address-page>form{
-    width:40%;
-    margin:auto;
-    margin-top:10px;
-   
-}
 
-#address-btn{
-    margin-bottom: 10px;
-    padding:1%;
-    background-color: green;
-    color:white;
-    outline: none;
-    cursor: pointer;
-    font-size: medium;
-}
+
+

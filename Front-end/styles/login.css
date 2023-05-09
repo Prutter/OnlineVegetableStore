@@ -5,12 +5,12 @@
     padding: 0;
 }
 .main{
-    border: 1px solid red;
+    border: 0px solid red;
     margin: 0;
     padding: 0;
     height: 100vh;
   color: green;
- background: url(./76811.jpg);
+ background-image: url(../images/signup2.jpg);
  
 }
 .cont{
@@ -20,7 +20,7 @@ margin: auto;
 /* border: 1px solid red; */
 display: flex;
 justify-content: space-between;
-margin-top: 50px;
+margin-top: 0px;
 border-radius: 60px;
 box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 background-color: white;
