@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Render.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <nav>
+
+        <div class="nav_container">
+    
+            <div class="logo">
+                <img src="/Organic_Oasis_Logo.png" alt="">
+            </div>
+            <h2>Shopping Page</h2>
+            <i class="fas fa-map-marker-alt" style="color: #1db954;"></i>
+           <div class="location">
+            <p class="deliverytxt">Deliver to</p>
+            <p class="add" id="cityaddress"></p>
+           </div>
+            <button id="Home-btn" onclick="window.location.href='index.html'">Home</button>
+            <button id="Home-btn2" onclick="window.location.href='cart.html'">Cart</button>
+    
+        </div>
+    
+    </nav>
+
+    <div class="container">
+        <div class="leftSection">
+            <h3>Customer Details</h3>
+    <div class="avatar">
+        <img width="105%" height="105%" src="/Avatar.png" alt="">
+    </div>
+    <div class="customer_description">
+<!-- total inputs = 9 -->
+
+<!-- userName -->
+<!-- email -->
+<!-- phone -->
+<!-- Address[flatNo,buildingName,area,city,state,pincode] -->
+
+<input type="text" id="CustomerName" name="CustomerName" placeholder=" CustomerName">
+<input type="text" id="email" name="email" placeholder=" Email">
+<input type="text" id="phone" name="phone" placeholder=" Phone">
+<div class="customerbuttons">
+    <button id="addressbtn" onclick="window.location.href='AddAdress.html'">Add Address</button>
+    <button id="cardbtn">Add Card</button>
+</div>
+
+</div>
+        </div>
+        <div id="rightsection">
+<!-- <div id="cards" class="productCard"> -->
+    <!-- <img width="100%" height="60%" src="/potato.jpg" alt="">
+    <h3>Potato</h3>
+    <h1>₹100</h1>
+    <button>Add to Cart</button> -->
+<!-- </div> -->
+        </div>
+    </div>
+</body>
+<script src="/Render.js"></script>
+</html>

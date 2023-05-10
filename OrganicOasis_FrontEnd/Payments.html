@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Payments.css">
+    <title>Document</title>
+</head>
+<body>
+    
+<nav>
+
+    <div class="nav_container">
+
+        <div class="logo">
+            <img src="/Organic_Oasis_Logo.png" alt="">
+        </div>
+        <h2>Payments Page</h2>
+        <button id="Home-btn" onclick="window.location.href='index.html'">Home</button>
+
+    </div>
+
+</nav>
+
+<div class="paymentsuccessfuldiv" id="paymentsuccessfulbox">
+    <img src="/Paymentsuccessful21.jpg" alt="">
+    <button id="okbutton" onclick="closepaymentsuccess()">OK</button>
+</div>
+<div class="cashAddsuccessfuldiv" id="cashAddsuccessfulbox">
+    <h3>Add money to wallet</h3>
+    <input id="inputbox" type="number" placeholder="Enter Amount">
+    <button id="addbutton" onclick="closeaddsuccess()">Add</button>
+</div>
+
+<div class="main_body_container">
+    
+    <div class="customer_details_div"><h3>Customer Details</h3>
+    <div class="avatar">
+        <img width="105%" height="105%" src="/Avatar.png" alt="">
+    </div>
+    <div class="customer_description">
+<!-- total inputs = 9 -->
+
+<!-- userName -->
+<!-- email -->
+<!-- phone -->
+<!-- Address[flatNo,buildingName,area,city,state,pincode] -->
+
+<input type="text" id="CustomerName" name="CustomerName" placeholder=" CustomerName">
+<input type="text" id="email" name="email" placeholder=" Email">
+<input type="text" id="phone" name="phone" placeholder=" Phone">
+<div class="addressdetails">
+
+    <input type="text" id="flatNo" name="flatNo" placeholder=" FlatNo">
+    <input type="text" id="buildingName" name="buildingName" placeholder=" BuildingName">
+    <input type="text" id="area" name="area" placeholder=" Area">
+    <input type="text" id="city" name="city" placeholder=" City">
+    <input type="text" id="state" name="state" placeholder=" State">
+    <input type="text" id="pincode" name="pincode" placeholder=" Pincode">
+
+</div>
+
+</div>
+    </div>
+    
+    <div class="payment_details_div">
+        <div class="card_payment_div">
+            <img id="bank_logo" src="/silicon-valley-logo (2).png" alt="">
+            <img id="chip" width="70px" src="/credit-card-chip-free-vector-removebg-preview.png" alt="">
+            <div class="inputdivs">
+            <input type="text" id="cardnumber" name="cardnumber" placeholder=" CardNumber">
+            <input type="text" id="CVV" name="CVV" placeholder=" CVV">
+            <input type="text" id="expiry" name="expiry" placeholder="Expiry">
+            <input type="text" id="username" name="username" placeholder=" UserName">
+            </div>
+            
+        </div>
+        <button id="pay_btn" onclick="paymentsuccess()">Pay</button>
+        <button id="pay_btn2" onclick="addcashsuccess()">Add money to wallet</button>
+
+
+        <div class="wallet_detail_div">
+            <h1>Pay with Wallet</h1>
+            <div class="walletbalancedetails">
+                <h2>Wallet Balance</h2>
+                <h3 id="wbalance">₹10000</h3>
+            </div>
+            <div class="carttotalvalue">
+                <h2>Cart Value</h2>
+                <h3 id="ctotal">₹5000</h3>
+            </div>
+            <button id="pay-btn" onclick="paymentsuccess()">Pay</button>
+        </div>
+    </div>
+
+</div>
+
+
+
+</body>
+
+<script src="/Payments.js"></script>
+
+</html>

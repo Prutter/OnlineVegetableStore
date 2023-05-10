@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@500&family=Fjalla+One&family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    background-color: white;
+    height: 100%;
+	border-bottom: 2px solid #1DB954;
+}
+.nav_container{
+    display: flex;
+}
+.nav_container h2{
+	margin-right: 20%;
+	margin-top: 15px;
+	font-family: 'Poppins', sans-serif;
+}
+.nav_container i{
+	margin-top: 20px;
+	margin-right:3px;
+	font-size: 35px;
+}
+.location{
+	margin-top: 20px;
+	margin-right: 20px;
+	margin-left: 5px;
+}
+.deliverytxt{
+	font-family: 'Poppins', sans-serif;
+	font-size: 14px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+.add{
+	margin-top: -4px;
+	font-weight: 700;
+	font-family: 'Ubuntu', sans-serif;
+}
+.logo{
+	height: 70px;
+	width: 70px;
+	margin-left: 20px;
+	margin-right: 35%;
+}
+.logo img{
+	height: 100%;
+	width: 100%;
+}
+#Home-btn {
+	background-color: #1DB954; 
+	text-align: center;
+	border: none;
+	border-radius: 50px;
+	color:white;
+	padding: 12px;
+	padding-bottom: 30px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: 700;
+	height: 35px;
+	width: 80px;
+	margin-top: 13px;
+	cursor: pointer;
+	margin-right: 20px;
+  }
+#Home-btn2 {
+	background-color: #1DB954; 
+	text-align: center;
+	border: none;
+	border-radius: 50px;
+	color:white;
+	padding: 12px;
+	padding-bottom: 30px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: 700;
+	height: 35px;
+	width: 80px;
+	margin-top: 13px;
+	cursor: pointer;
+  }
+.container{
+    display: flex;
+}
+.leftSection{
+    width: 25%;
+	padding-right: 25px;
+	height: 745px;
+	background-color: #1DB954;
+	color: white;
+}
+/* .inputdivs{
+	
+	margin-top: 0px;
+	margin-left: 40px;
+	display: grid;
+	grid-template-columns: repeat(2,170px);
+	grid-template-rows: repeat(3,30px);
+	gap: 20px 185px;
+	grid-template-areas: 
+	"CN CN"
+	"CVV Date"
+	"Owner Owner";
+  }
+  .inputdivs input:nth-child(1){
+	font-family: 'Courier Prime', monospace;
+	letter-spacing: 2px;
+	padding-left: 5px;
+	/* margin-top: 20px; */
+	/* width: 415px;
+	height: 30px;
+	grid-area: CN; */
+  /* }  */
+#rightsection{
+	padding-top: 30px;
+    width: 75%;
+	height: 745px;
+	padding-left: 100px;
+	background-color: yellow;
+	color: black;
+    display: grid;
+    grid-template-columns: repeat(4,220px);
+	grid-auto-rows: auto;
+	gap: 20px;
+}
+.leftSection h3{
+    margin-left: 95px;
+	margin-top: 35px;
+	font-family: 'Poppins', sans-serif;
+	color: white;
+} 
+/* .productCard{
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    margin: 10px;
+    height: 285px;
+}
+.productCard img{
+    border-radius: 10px;
+}
+.productCard h3{
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Ubuntu', sans-serif;
+}
+.productCard h1{
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 5px;
+}
+.productCard button{
+    text-align: center;
+    width: 100%;
+    height: 45px;
+    background-color: #1DB954;
+    border: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 0px 0px 10px 10px;
+} */
+.card{
+	border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    margin: 10px;
+    height: 285px;
+}
+.card img{
+    border-radius: 10px;
+	width:100%;
+	height:60%;
+}
+.card h3{
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Ubuntu', sans-serif;
+}
+.card p{
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 5px;
+}
+.card button{
+    text-align: center;
+    width: 100%;
+    height: 45px;
+    background-color: #1DB954;
+    border: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 0px 0px 10px 10px;
+}
+.customer_details_div h3{
+	margin-left: 95px;
+	margin-top: 35px;
+	font-family: 'Poppins', sans-serif;
+	color: white;
+  }
+  .avatar{
+	background-color: white;
+	width: 150px;
+	height: 150px;
+	margin-left: 100px;
+	margin-top: 50px;
+	border-radius: 60%;
+  }
+  .customer_description{
+	background-color: white;
+	width: 325px;
+	height: 245px;
+	margin-left: 20px;
+	margin-top: 50px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+    padding-top: 20px;
+  }
+
+  .customer_description input{
+	/* border-radius: 10px; */
+	padding-left: 5px;
+	outline: none;
+	font-family: 'Poppins', sans-serif;
+	border-top:none;
+	border-left:none;
+	border-right:none;
+	border-bottom:2px solid #1DB954;
+    margin-left: 20px;
+    margin-top: 30px;
+    width: 250px;
+
+  }
+  .customer_description #addressbtn{
+	margin-top: 20px;
+	border: none;
+	margin-left: 20px;
+	height: 40px;
+	width: 150px;
+	border-radius: 20px;
+	background-color: #1DB954;
+	color: white;
+	font-size: 18px;
+	font-family: 'Poppins', sans-serif;
+  }
+  .customerbuttons{
+    display: flex;
+
+  }
+  .customer_description #cardbtn{
+	margin-top: 20px;
+	border: none;
+	margin-left: 20px;
+	height: 40px;
+	width: 120px;
+	border-radius: 20px;
+	background-color: #1DB954;
+	color: white;
+	font-size: 18px;
+	font-family: 'Poppins', sans-serif;
+  }

@@ -28,3 +28,4 @@ function addToCart(itemName, itemPrice) {
   cartItem.innerHTML = itemName + " - $" + itemPrice;
   cartItems.appendChild(cartItem);
 }
+

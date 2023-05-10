@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/AddAdress.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <nav>
+
+        <div class="nav_container">
+    
+            <div class="logo">
+                <img src="/Organic_Oasis_Logo.png" alt="">
+            </div>
+            <h2>Address Page</h2>
+            <button id="Home-btn" onclick="window.location.href='Render.html'">Home</button>
+            <!-- <button id="Home-btn2" onclick="window.location.href='cart.html'">Cart</button> -->
+    
+        </div>
+    
+    </nav>
+
+    <div class="main">
+        <div class="cont">
+            <div id="leftimg">
+                <img src="/image1.jpg" alt="">
+            </div>
+            <div>
+                <img src="/Organic_Oasis_Logo.png" id="logo" alt="">
+                <h1>ORGANIC OASIS</h1>
+                <div class="form">
+                    <form >
+                       <input type="text" placeholder="Flatno" id="flatno" required/>
+                       <input type="text" placeholder="Building" id="building" required/>
+                       <input type="text" placeholder="Area" id="area" required  />
+                       <input type="text" placeholder="City" id="city" required/>
+                       <input type="text" placeholder="Pincode" id="Pincode" required />  
+                       <input type="submit" value="Register" id="submit-btn"  onclick="window.location.href='Render.html'; registerAddress();"/>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+<script src="AddAddress.js"></script>
+</html>

@@ -1,0 +1,457 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@500&family=Fjalla+One&family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    background-color: white;
+    height: 100%;
+	border-bottom: 2px solid #1DB954;
+}
+.nav_container{
+    display: flex;
+}
+.nav_container h2{
+	margin-right: 36%;
+	margin-top: 15px;
+	font-family: 'Poppins', sans-serif;
+}
+.logo{
+	height: 70px;
+	width: 70px;
+	margin-left: 20px;
+	margin-right: 35%;
+}
+.logo img{
+	height: 100%;
+	width: 100%;
+}
+#Home-btn {
+	background-color: #1DB954; 
+	text-align: center;
+	border: none;
+	border-radius: 50px;
+	color:white;
+	padding: 12px;
+	padding-bottom: 30px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: 700;
+	height: 35px;
+	width: 80px;
+	margin-top: 13px;
+	cursor: pointer;
+  }
+  .paymentsuccessfuldiv{
+	border: 3px solid #1DB954;
+	height: 350px;
+	width: 600px;
+	position: absolute;
+	z-index: 20;
+	margin: 150px 0px 150px 380px;
+    border-radius: 20px;
+	visibility: hidden;
+	background-color: white;
+	padding-bottom: 20px;
+  }
+  .cashAddsuccessfuldiv{
+	border: 3px solid #1DB954;
+	height: 250px;
+	width: 500px;
+	position: absolute;
+	z-index: 20;
+	margin: 150px 0px 150px 420px;
+    border-radius: 20px;
+	visibility: hidden;
+	background-color: white;
+	padding-bottom: 20px;
+  }
+  .paymentsuccessfuldiv img{
+	height: 85%;
+	width: 100%;
+	border-radius: 20px;
+  }
+  .cashAddsuccessfuldiv img{
+	height: 85%;
+	width: 100%;
+	border-radius: 20px;
+  }
+  .cashAddsuccessfuldiv h3{
+	font-family: 'Poppins', sans-serif;
+	margin-left: 140px;
+	margin-top: 60px;
+  }
+  #inputbox{
+	position: absolute;
+	z-index: 20;
+	margin-top: 30px;
+	height: 50px;
+	font-size: 30px;
+	width: 250px;
+	margin-left: 110px;
+	outline: none;
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	border-bottom: 2px solid #1DB954;
+	padding-left: 5px;
+	text-align: center;
+  }
+  #okbutton{
+	border: none;
+	margin-left: 250px;
+	height: 40px;
+	width: 100px;
+	border-radius: 20px;
+	background-color: #1DB954;
+	color: white;
+	font-size: 18px;
+	font-family: 'Poppins', sans-serif;
+	
+  }
+  #addbutton{
+	border: none;
+	margin-left: 190px;
+	margin-top: 120px;
+	margin-top: 110px;
+	height: 40px;
+	width: 100px;
+	border-radius: 20px;
+	background-color: #1DB954;
+	color: white;
+	font-size: 18px;
+	font-family: 'Poppins', sans-serif;
+	
+  }
+  .main_body_container{
+	display: flex;
+  }
+  .main_body_container .customer_details_div{
+	width: 25%;
+	height: 670px;
+	background-color: #1DB954;
+	color: white;
+  }
+  .customer_details_div h3{
+	margin-left: 95px;
+	margin-top: 35px;
+	font-family: 'Poppins', sans-serif;
+	color: white;
+  }
+  .main_body_container .payment_details_div{
+	width: 75%;
+	height: 670px;
+	background-color: yellow;
+	color: black;
+  }
+  .payment_details_div{
+	display: flex;
+  
+  }
+  .avatar{
+	background-color: white;
+	width: 150px;
+	height: 150px;
+	margin-left: 100px;
+	margin-top: 50px;
+	border-radius: 60%;
+  }
+  .avatar img{
+  border-radius: 65px;
+}
+  .customer_description{
+	background-color: white;
+	width: 325px;
+	height: 330px;
+	margin-left: 20px;
+	margin-top: 50px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+  }
+  .card_payment_div #chip{
+	margin-top: 80px;
+	margin-left: 35px;
+  }
+  /* .card_payment_div{
+	background-color: #1DB954;
+	width: 500px;
+	height: 300px;
+	margin-top: 90px;
+	margin-left: 50px;
+	margin-right: 20px;
+	border-radius: 20px;
+  } */
+  .wallet_detail_div{
+	background-color: #1DB954;
+	width: 460px;
+	height: 630px;
+	margin-top: 20px;
+	margin-left: 50px;
+	border-radius: 20px;
+  }
+  /* outer_div{
+	display: grid;
+	/* border: 2px solid black; */
+	/* margin-top: 28px; */
+	/* justify-content: center;
+	grid-template-columns: repeat(3,400px);
+	grid-template-rows: repeat(2,290px);
+	gap: 10px;
+	grid-template-areas: 
+	"P P F"
+	"B M F";
+  } */
+  /* .outer_div div:nth-child(1){ */
+	/* background-color: silver; */
+	/* grid-area: P; */
+  /* } */
+  /* .outer_div div:nth-child(2){
+  
+	grid-area: B;
+  }
+  .outer_div div:nth-child(3){
+  
+	grid-area: M;
+  }
+  .outer_div div:nth-child(4){
+  
+	grid-area: F; */
+  /* } */
+  .card_payment_div{
+	background-color: #1DB954;
+	width: 500px;
+	height: 312px;
+	margin-top: 90px;
+	margin-left: 50px;
+	margin-right: 20px;
+	border-radius: 20px;
+	
+  }
+  #bank_logo{
+	position: absolute;
+	z-index: 10;
+	margin-top: -20px;
+	margin-bottom: 10px;
+	margin-left: 320px;
+	height: 140px;
+	width: 150px;
+	filter: invert(100%);
+  }
+  .inputdivs{
+	
+	margin-top: 0px;
+	margin-left: 40px;
+	display: grid;
+	grid-template-columns: repeat(2,170px);
+	grid-template-rows: repeat(3,30px);
+	gap: 20px 185px;
+	grid-template-areas: 
+	"CN CN"
+	"CVV Date"
+	"Owner Owner";
+  }
+  .inputdivs input:nth-child(1){
+	font-family: 'Courier Prime', monospace;
+	letter-spacing: 2px;
+	padding-left: 5px;
+	/* margin-top: 20px; */
+	width: 415px;
+	height: 30px;
+	grid-area: CN;
+  }
+  .inputdivs input:nth-child(2){
+	padding-left: 5px;
+	letter-spacing: 2px;
+	font-family: 'Courier Prime', monospace;
+	width: 70px;
+	grid-area: CVV;
+  }
+  .inputdivs input:nth-child(3){
+	padding-left: 5px;
+	letter-spacing: 1px;
+	font-family: 'Courier Prime', monospace;
+	width: 60px;
+	grid-area: Date;
+  }
+  .inputdivs input:nth-child(4){
+	padding-left: 5px;
+	letter-spacing: 2px;
+	font-family: 'Courier Prime', monospace;
+	width: 200px;
+	grid-area: Owner;
+  }
+  #CustomerName{
+	margin-top: 35px;
+	margin-bottom: 15px;
+	margin-left: 35px;
+	width: 250px;
+	height: 30px;
+  }
+  #email{
+	margin-left: 35px;
+	margin-bottom: 15px;
+	width: 250px;
+	height: 30px;
+  }
+  #phone{
+	margin-left: 35px;
+	width: 250px;
+	height: 30px;
+  }
+  .addressdetails{
+	margin-top: 20px;
+	display: grid;
+	grid-template-columns: repeat(2,170px);
+	grid-template-rows: repeat(3,30px);
+	gap: 10px;
+	grid-template-areas: 
+	"Flat Build"
+	"Area City"
+	"State Pin";
+  }
+  .addressdetails input:nth-child(1){
+	width: 105px;
+	height: 30px;
+	margin-left: 35px;
+	grid-area: Flat;
+  }
+  .addressdetails input:nth-child(2){
+	width: 105px;
+	height: 30px;
+	margin-left: 0px;
+	grid-area: Build;
+  }
+  .addressdetails input:nth-child(3){
+	width: 105px;
+	height: 30px;
+	margin-left: 35px;
+	grid-area: Area;
+  }
+  .addressdetails input:nth-child(4){
+	width: 105px;
+	height: 30px;
+	margin-left: 0px;
+	grid-area: City;
+  }
+  .addressdetails input:nth-child(5){
+	width: 105px;
+	height: 30px;
+	margin-left: 35px;
+	grid-area: State;
+  }
+  .addressdetails input:nth-child(6){
+	width: 105px;
+	height: 30px;
+	margin-left: 0px;
+	grid-area: Pin;
+  }
+  .customer_description input{
+	/* border-radius: 10px; */
+	padding-left: 5px;
+	outline: none;
+	font-family: 'Poppins', sans-serif;
+	border-top:none;
+	border-left:none;
+	border-right:none;
+	border-bottom:2px solid #1DB954;
+
+
+  }
+  .wallet_detail_div h1{
+	font-family: 'Poppins', sans-serif;
+	color: white;
+	margin-left: 100px;
+	margin-top: 50px;
+  }
+  .walletbalancedetails h2{
+	font-family: 'Ubuntu', sans-serif;
+	margin-left: 45px;
+	padding-top: 20px;
+	color: #7822e7;
+	font-weight: 700;
+	font-size: 30px;
+  }
+
+  .carttotalvalue h2{
+	font-family: 'Ubuntu', sans-serif;
+	margin-left: 75px;
+	padding-top: 20px;
+	color: #ce1cf9;
+	font-weight: 700;
+	font-size: 30px;
+  }
+  .walletbalancedetails{
+background-color: white;
+height: 140px;
+width: 300px;
+margin-left: 75px;
+margin-top: 50px;
+border-radius: 10px;
+  }
+  .walletbalancedetails #wbalance{
+	margin-left: 100px;
+	margin-top: 20px;
+	font-size: 30px;
+    font-family: 'Lato', sans-serif;
+  }
+  .carttotalvalue #ctotal{
+	margin-left: 100px;
+	margin-top: 20px;
+	font-size: 30px;
+    font-family: 'Lato', sans-serif;
+  }
+  .carttotalvalue{
+	background-color: white;
+	height: 140px;
+	width: 300px;
+	margin-left: 75px;
+	margin-top: 50px;
+	border-radius: 10px;
+  }
+  .wallet_detail_div button{
+	margin-top: 45px;
+	border: none;
+	margin-left: 170px;
+	height: 40px;
+	width: 100px;
+	border-radius: 20px;
+	background-color: white;
+	font-family: 'Poppins', sans-serif;
+	font-size: 18px;
+  }
+  #pay_btn{
+	position: absolute;
+	z-index: 10;
+	margin-top: 450px;
+	border: none;
+	margin-left: 250px;
+	height: 40px;
+	width: 100px;
+	border-radius: 20px;
+	background-color: #1DB954;
+	color: white;
+	font-size: 18px;
+	font-family: 'Poppins', sans-serif;
+  }
+  #pay_btn2{
+	position: absolute;
+	z-index: 10;
+	margin-top: 550px;
+	border: none;
+	margin-left: 180px;
+	height: 40px;
+	width: 250px;
+	border-radius: 20px;
+	background-color: #1DB954;
+	color: white;
+	font-size: 18px;
+	font-family: 'Poppins', sans-serif;
+  }
+  
