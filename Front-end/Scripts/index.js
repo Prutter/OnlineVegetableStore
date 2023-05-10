@@ -76,6 +76,9 @@ addressbtn.onsubmit=(e)=>{
   city.value="";
   state.value="";
   pcode.value="";
+  let customerdetails= JSON.parse(localStorage.getItem("customer"))|| undefined;
+  const url= `http://localhost:8088/organicoasis/registercustomeraddress/${customerdetails.userId}`;
+  addAddress(url,addressDetails);
 
   document.querySelector("#address-page").style.display="none";
   document.querySelector("#main").style.display="block";
@@ -94,13 +97,73 @@ cardbtn.onsubmit= (e)=>{
     "expiryDate" :expDate.value,
     "walletAmount" : walletAmount.value
    }
-
+   let customerdetails= JSON.parse(localStorage.getItem("customer"))|| undefined;
+   const url= `http://localhost:8088/organicoasis/organicoasis/addcard/${customerdetails.userId}`;
+   addCard(url,cardDetails);
    cardNo.value="";
    expDate.value="";
    walletAmount.value="";
+
 
   document.querySelector("#card-page").style.display="none";
   document.querySelector("#main").style.display="block";
 };
 
+let addAddress= async(url,obj)=>{
+  try {
+       let res=  await fetch(url,{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify(obj)
+       });
+     
+       if(res.ok)
+        {
+          let ans= await res.json();
+          alert(`Address ${ans}`);
+        }
+         else 
+          {
+             let error= await res.json();
+             alert(error.message);
+          }
 
+     
+
+  } catch (error) {
+    alert("Something went wrong :${error}");
+  }
+};
+
+let addCard= async (url,obj)=>{
+
+  try {
+    let res=  await fetch(url,{
+     method:"POST",
+     headers:{
+       "Content-Type":"application/json"
+     },
+     body:JSON.stringify(obj)
+    });
+  
+    if(res.ok)
+     {
+       let ans= await res.json();
+       alert("card  added");
+       localStorage.setItem("cardWallet",JSON.stringify(ans));
+     }
+      else 
+       {
+          let error= await res.json();
+          alert(error.message);
+       }
+
+  
+
+} catch (error) {
+ alert("Something went wrong :${error}");
+}
+
+};
