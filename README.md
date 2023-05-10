@@ -41,7 +41,7 @@
 
 ## Contributers
 - Kashish Bansal
-- Himanshu
+- Himanshu Kumar
 - MD. Monazir Hussain
 - Soumit Das
 - Ankit Choubey
