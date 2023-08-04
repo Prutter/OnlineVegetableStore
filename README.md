@@ -26,7 +26,7 @@
 ## Backend Technolgy
 - Java
 - Spring Boot
-- Hybernate (ORM or JPA)
+- Hibernate (ORM or JPA)
 - MySql
 
 ## Tools
